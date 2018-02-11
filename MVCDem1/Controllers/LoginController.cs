@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MVCDem1.Controllers
 {
-    public class TaxiSearchController : Controller
+    public class LoginController : Controller
     {
         [HttpGet]
         public ActionResult Index()
@@ -15,11 +15,9 @@ namespace MVCDem1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(FormCollection frmCollection)
+        public ActionResult Index(FormCollection frmData)
         {
-            string Place = frmCollection["PlaceName"].ToString();
-          //  List<string> Data=null;//From database
-            return RedirectToAction("Map", "ListTaxi");
+            return RedirectToAction("Index", "TaxiSearch");
         }
     }
 }

@@ -20,5 +20,10 @@ namespace MVCDem1.Controllers
 
             return View(ListTaxes);
         }
+
+        public ActionResult Map()
+        {
+            return View( );
+        }
     }
 }

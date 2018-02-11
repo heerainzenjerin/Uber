@@ -1,0 +1,10 @@
+﻿  
+ CREATE TABLE Uber.HEERA_TAXI 
+ (
+
+	TaxiId int Identity(1,1),
+	DriverName varchar(50),
+	vechicleNo varchar(50),
+	vechicleModel varchar(50),
+	Rating varchar(50)
+ )

@@ -1,0 +1,75 @@
+﻿
+
+<h3>Showing Result based on your search...</h3>
+<div class="col-md-8 col-md-offset-1">
+
+    <div id="map-canvas"></div>
+
+    <div class="container-fluid" style="
+    margin-left: 50%;">
+        <a href="/ListTaxi/Index" style="margin-top:10%" class="btn btn-primary btn-large" onclick="window.open(this.href, 'mywin','left=50,top=20,width=800,height=800,toolbar=1,resizable=0'); return false;">Show fairs</a>
+        <a href="/TaxiSearch/Index" style="margin-top:10%" class="btn btn-primary btn-large">Back to Search</a>
+    </div>
+    </div>
+
+ 
+ 
+
+ 
+<style>
+    #map-canvas {
+        height: 600px;
+        width: 900px;
+        background-color: #CCC;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArfq1o4N94SJewOICjVGT8HT7cmFFSxVM&callback=initMap"
+        type="text/javascript"></script>
+<script>
+
+
+    $(document).ready(function () {
+        function initialize() {
+
+            var myLatLng = new google.maps.LatLng(45.4375, 12.3358),
+                myOptions = {
+                    zoom: 5,
+                    center: myLatLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                },
+                map = new google.maps.Map(document.getElementById('map-canvas'), myOptions),
+                marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map
+                });
+
+            marker.setMap(map);
+            moveMarker(map, marker);
+
+        }
+
+        function moveMarker(map, marker) {
+
+            //delayed so you can see it move
+            setTimeout(function () {
+
+                marker.setPosition(new google.maps.LatLng(45.4375, 12.3358));
+                map.panTo(new google.maps.LatLng(45.4375, 12.3358));
+
+            }, 1500);
+
+        };
+
+ 
+
+        initialize();
+    });
+
+
+
+
+
+
+</script>
