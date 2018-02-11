@@ -12,6 +12,7 @@ using TaxiModelNamespace;
 
 namespace MVCDem1.Models.TaxiProp.Datalayer
 {
+    //
     public class TaxiDataLayer
     {
         public List<Taxi> GetTaxes()
