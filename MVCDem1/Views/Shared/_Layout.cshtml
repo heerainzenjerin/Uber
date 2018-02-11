@@ -1,0 +1,42 @@
+﻿@*@{
+    ViewBag.Title = "ActivateUser";
+    Layout = "~/Views/Layout/_masterLoginRegistration.cshtml";
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="~/bootstrap-3.3.7-dist/js/npm.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse
+        <div class=" container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Ramjin</a>
+
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">AboutUs</a></li>
+            <li><a href="#">Sign in</a></li>
+
+        </ul>
+
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+       @RenderBody()
+    </div>
+
+</body>
+</html>

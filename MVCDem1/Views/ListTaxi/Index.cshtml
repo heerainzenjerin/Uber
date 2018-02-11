@@ -1,0 +1,26 @@
+﻿ @model List<TaxiModelNamespace.Taxi>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Driver Name</th>
+            <th>Vechicle No</th>
+            <th>Vechicle Name</th>
+            <th>Rating </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Taxi in Model)
+        {
+            <tr>
+                <td>@Taxi.DriverName</td>
+                <td>@Taxi.VehicleNo</td>
+                <td>@Taxi.VehicleModel</td>
+                <td>@Taxi.Rating</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
