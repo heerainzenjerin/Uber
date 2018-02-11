@@ -8,6 +8,7 @@ namespace MVCDem1.Controllers
 {
     public class LoginController : Controller
     {
+        //Ramjin
         [HttpGet]
         public ActionResult Index()
         {
