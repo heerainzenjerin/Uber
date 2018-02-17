@@ -19,11 +19,17 @@ namespace MVCDem1.Controllers
             List<Taxi> ListTaxes = ObjTaxiDataLayer.GetTaxes();
 
             return View(ListTaxes);
-        }
-
+        }  
         public ActionResult Map()
         {
             return View( );
         }
+
+        public ActionResult Temp2()
+        {
+            return View();
+        }
+
+      
     }
 }
