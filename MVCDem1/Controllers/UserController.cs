@@ -10,7 +10,8 @@ namespace MVCDem1.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
+
+            [Authorize]
         public ActionResult Index()
         {
             UserDataLayer ObjUserDataLayer = new UserDataLayer();

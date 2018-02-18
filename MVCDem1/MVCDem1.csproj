@@ -111,8 +111,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListTaxiController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SignoutController.cs" />
     <Compile Include="Controllers\TaxiSearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -122,6 +124,8 @@
     <Compile Include="Models\Home\Properties\User.cs" />
     <Compile Include="Models\Taxi\Datalayer\TaxiDataLayer.cs" />
     <Compile Include="Models\Taxi\Properties\Taxi.cs" />
+    <Compile Include="Models\Vechicle\DataLayer\VechicleDataLayer.cs" />
+    <Compile Include="Models\Vechicle\Properties\Vechicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +153,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ListTaxi\Temp2.cshtml" />
+    <Content Include="Views\Vehicle\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,7 +161,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Signout\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

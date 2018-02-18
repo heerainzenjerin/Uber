@@ -8,17 +8,19 @@ namespace MVCDem1.Controllers
 {
     public class TaxiSearchController : Controller
     {
+        [Authorize]
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Index(FormCollection frmCollection)
         {
             string Place = frmCollection["PlaceName"].ToString();
-          //  List<string> Data=null;//From database
+            //  List<string> Data=null;//From database
             return RedirectToAction("Map", "ListTaxi");
         }
     }

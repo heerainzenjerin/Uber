@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVCDem1.Controllers
 {
@@ -15,10 +16,22 @@ namespace MVCDem1.Controllers
             return View();
         }
 
+    
         [HttpPost]
-        public ActionResult Index(FormCollection frmData)
+        [ActionName("Index")]
+        public ActionResult IndexPost()
         {
-            return RedirectToAction("Index", "TaxiSearch");
+            if (FormsAuthentication.Authenticate(Request.Form["Username"].ToString(), Request.Form["password"].ToString()))
+            {
+                FormsAuthentication.RedirectFromLoginPage(Request.Form["Username"].ToString(), false);
+                return RedirectToAction("Index", "TaxiSearch");
+            }
+
+            else
+            {
+                Response.Write("INvalid user");
+                return RedirectToAction("Index","Login");
+            }
         }
     }
 }

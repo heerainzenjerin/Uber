@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using MVCDem1.Models.TaxiProp.Datalayer;
 
 using System;
@@ -12,17 +12,19 @@ namespace MVCDem1.Controllers
 {
     public class ListTaxiController : Controller
     {
-        // GET: ListTask
+
+        [Authorize]
         public ActionResult Index()
         {
             TaxiDataLayer ObjTaxiDataLayer = new TaxiDataLayer();
             List<Taxi> ListTaxes = ObjTaxiDataLayer.GetTaxes();
 
             return View(ListTaxes);
-        }  
+        }
+        [Authorize]
         public ActionResult Map()
         {
-            return View( );
+            return View();
         }
 
         public ActionResult Temp2()
@@ -30,6 +32,6 @@ namespace MVCDem1.Controllers
             return View();
         }
 
-      
+
     }
 }

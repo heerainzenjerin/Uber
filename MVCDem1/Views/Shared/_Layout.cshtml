@@ -1,8 +1,4 @@
-﻿@*@{
-        ViewBag.Title = "ActivateUser";
-        Layout = "~/Views/Layout/_masterLoginRegistration.cshtml";
-    }*@
-
+﻿ 
 <!DOCTYPE html>
 
 <html>
@@ -24,8 +20,24 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/Home/Index">Home</a></li>
                 <li><a href="/TaxiSearch/index">Search</a></li>
-                <li><a href="#">AboutUs</a></li>
-                <li><a href="/Login/Index">Sign in</a></li>
+                <li><a href="/Vehicle/index">Add Vehicle</a></li>
+                
+
+                @if (ViewBag.Title != "login")
+                {
+
+                    <li>
+                        <a class="btn" href="/Signout/index">Sign out</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li>
+                        <a class="btn" href="/Login/index">Sign In</a>
+                    </li>
+
+                }
 
             </ul>
 
