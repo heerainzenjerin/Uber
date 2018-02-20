@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using MVCDem1.Models.Home.Properties;
 using MVCDem1.Intrastructure;
+using System.Web.Security;
 
 
 namespace MVCDem1.Models.Home.DataLayer
@@ -26,13 +27,16 @@ namespace MVCDem1.Models.Home.DataLayer
                    SqlCommand cmd = new SqlCommand("SPHeeraUserInsert", con);
                    cmd.CommandType = CommandType.StoredProcedure;
 
+                   string encryptedPassword = FormsAuthentication.
+                       HashPasswordForStoringInConfigFile(ObjBindedUser.Password, "SHA1");
+
 
                    cmd.Parameters.AddWithValue("@FIRST_NAME", ObjBindedUser.FirstName);
                    cmd.Parameters.AddWithValue("@LAST_NAME", ObjBindedUser.LastName );
                    cmd.Parameters.AddWithValue("@EMAIL", ObjBindedUser.Email);
-                   cmd.Parameters.AddWithValue("@PASSWORD", ObjBindedUser.Password);
-                   cmd.Parameters.AddWithValue("@AGE", ObjBindedUser.Age);
-
+                   cmd.Parameters.AddWithValue("@PASSWORD", encryptedPassword);
+                   cmd.Parameters.AddWithValue("@IsDriver", ObjBindedUser.IsDriver);
+                   cmd.Parameters.AddWithValue("@LisenceNo", ObjBindedUser.LisenceNo);
                    string Result =(string)cmd.ExecuteScalar();
 
                    if (Result == "USER_EXISTS")
@@ -84,6 +88,36 @@ namespace MVCDem1.Models.Home.DataLayer
 
         }
 
+
+        public bool AuthenticateUser(string Email, string Password)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+               
+                try
+                {
+                    con.Open();
+           
+                    string EncryptedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(Password, "SHA1");
+                    SqlCommand cmd = new SqlCommand("Select * FROM HEERA_USER Where Email=@Email and Password=@Password",con);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Password", EncryptedPassword);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    return rdr.HasRows;
+                }
+                catch 
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+        }
+
         public List<User> GetUsers()
         {
             List<User> ListUser = new List<User>();
@@ -102,7 +136,7 @@ namespace MVCDem1.Models.Home.DataLayer
                             objUser.FirstName = rdr["FIRST_NAME"].ToString();
                             objUser.LastName = rdr["LAST_NAME"].ToString();
                             objUser.Email = rdr["EMAIL"].ToString();
-                            objUser.Age = Convert.ToInt32(rdr["AGE"]);
+                           
                             ListUser.Add(objUser);
                         }
                     }

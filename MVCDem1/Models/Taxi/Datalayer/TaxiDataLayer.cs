@@ -24,7 +24,7 @@ namespace MVCDem1.Models.TaxiProp.Datalayer
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Select * from  Uber.HEERA_TAXI", con);
+                    SqlCommand cmd = new SqlCommand("Select * from  HEERA_TAXI", con);
                     SqlDataReader rdr = cmd.ExecuteReader();
                     if(rdr.HasRows)
                     {

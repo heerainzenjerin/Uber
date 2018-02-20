@@ -86,7 +86,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Tables.txt" />
+    <Content Include="App_Data\HeeraUber.mdf" />
+    <Content Include="App_Data\HeeraUber_log.ldf">
+      <DependentUpon>HeeraUber.mdf</DependentUpon>
+    </Content>
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css" />
@@ -96,6 +99,7 @@
     <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\Images\HeeraUberCar.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -113,6 +117,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignoutController.cs" />
     <Compile Include="Controllers\TaxiSearchController.cs" />
+    <Compile Include="Controllers\UnAuthorizedController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Global.asax.cs">
@@ -154,6 +159,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ListTaxi\Temp2.cshtml" />
     <Content Include="Views\Vehicle\Index.cshtml" />
+    <Content Include="Views\UnAuthorized\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

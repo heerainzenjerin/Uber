@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCDem1.Models.Home.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,7 @@ namespace MVCDem1.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
     
@@ -21,7 +22,9 @@ namespace MVCDem1.Controllers
         [ActionName("Index")]
         public ActionResult IndexPost()
         {
-            if (FormsAuthentication.Authenticate(Request.Form["Username"].ToString(), Request.Form["password"].ToString()))
+            UserDataLayer dataLayer = new UserDataLayer();
+
+            if (dataLayer.AuthenticateUser(Request.Form["Username"].ToString(), Request.Form["password"].ToString()))
             {
                 FormsAuthentication.RedirectFromLoginPage(Request.Form["Username"].ToString(), false);
                 return RedirectToAction("Index", "TaxiSearch");
@@ -29,8 +32,8 @@ namespace MVCDem1.Controllers
 
             else
             {
-                Response.Write("INvalid user");
-                return RedirectToAction("Index","Login");
+                ViewBag.Message = "Invalid credentails";
+                return RedirectToAction("Index", "UnAuthorized");
             }
         }
     }

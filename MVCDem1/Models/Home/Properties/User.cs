@@ -15,7 +15,11 @@ namespace MVCDem1.Models.Home.Properties
         public string Email { get; set; }
 
         public string Password { get; set; }
-        public int Age { get; set; }
+
+        public int LisenceNo { get; set; }
+
+        public bool IsDriver { get; set; }
+         
     }
 
 

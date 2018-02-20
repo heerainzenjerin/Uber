@@ -23,15 +23,23 @@ namespace MVCDem1.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection frmCollection)
         {
-            if(frmCollection["Password"].ToString()==frmCollection["cnfPassword"].ToString())
+            bool IsDriver = false;
+            if (Request.Form["IsDriver"] != null)
+            {
+                IsDriver = true;
+            }
+
+
+            if (frmCollection["passwd"].ToString() == frmCollection["cnfPassword"].ToString())
             {
               
                 User ObjUser = new User();
-                ObjUser.FirstName = frmCollection["FName"];
-                ObjUser.LastName = frmCollection["LName"];
-                ObjUser.Email = frmCollection["Email"];
-                ObjUser.Password = frmCollection["Password"];
-                ObjUser.    Age = 34;
+                ObjUser.FirstName = frmCollection["firstname"];
+                ObjUser.LastName = frmCollection["lastname"];
+                ObjUser.Email = frmCollection["email"];
+                ObjUser.Password = frmCollection["passwd"];
+                ObjUser.IsDriver = IsDriver;
+                ObjUser.LisenceNo = 2323;
 
                 UserDataLayer UserDataLayer = new UserDataLayer();
 
@@ -56,7 +64,7 @@ namespace MVCDem1.Controllers
             }
             else
             {
-                ViewBag.Message = "Password doesnt Match!!!";
+                ViewBag.InfoError = "Password doesnt Match!!!";
             }
 
     

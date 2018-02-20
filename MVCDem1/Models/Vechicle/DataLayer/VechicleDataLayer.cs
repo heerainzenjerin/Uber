@@ -21,7 +21,7 @@ namespace MVCDem1.Models.VechicleNamespace.DataLayer
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO [Uber].[HEERA_TAXI]([DriverName],[vechicleNo],[vechicleModel],[Rating]) VALUES(@DriverName,@vechicleNo,@vechicleModel,@Rating)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [HEERA_TAXI]([DriverName],[vechicleNo],[vechicleModel],[Rating]) VALUES(@DriverName,@vechicleNo,@vechicleModel,@Rating)", con);
                     cmd.CommandType = CommandType.Text;
 
 
